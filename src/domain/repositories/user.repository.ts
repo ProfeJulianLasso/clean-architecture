@@ -4,5 +4,5 @@ export interface IUserRepository<Entity extends UserEntity = UserEntity> {
   create(entity: Entity): Promise<Entity>;
   update(id: string, entity: Entity): Promise<Entity>;
   delete(id: string): Promise<boolean>;
-  find(...where: any[]): Promise<Entity[]>;
+  findAll(): Promise<Entity[]>;
 }

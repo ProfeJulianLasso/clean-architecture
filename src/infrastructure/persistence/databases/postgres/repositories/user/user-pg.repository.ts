@@ -18,14 +18,14 @@ export class UserPgRepository<Entity extends UserPgEntity = UserPgEntity>
   }
 
   update(id: string, entity: Entity): Promise<Entity> {
-    throw new Error('Method not implemented.');
+    throw new Error('Method not implemented. ' + id + entity);
   }
 
   delete(id: string): Promise<boolean> {
-    throw new Error('Method not implemented.');
+    throw new Error('Method not implemented. ' + id);
   }
 
-  find(...where: any[]): Promise<Entity[]> {
+  findAll(): Promise<Entity[]> {
     throw new Error('Method not implemented.');
   }
 }

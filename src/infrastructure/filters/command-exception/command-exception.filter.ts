@@ -9,7 +9,7 @@ import { CommandException } from '../../../domain/exceptions/command.exception';
 
 @Catch(CommandException)
 export class CommandExceptionFilter implements ExceptionFilter {
-  catch(exception: CommandException, host: ArgumentsHost) {
+  catch(exception: CommandException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
 

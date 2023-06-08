@@ -9,7 +9,19 @@ dotenv.config({
   ),
 });
 
-export const Configuration = () => ({
+type DatabaseConfigurationType = {
+  host: string;
+  port: number;
+  username: string;
+  password: string;
+  database: string;
+};
+
+type ConfigurationType = {
+  database: DatabaseConfigurationType;
+};
+
+export const Configuration = (): ConfigurationType => ({
   database: {
     host: process.env.DATABASE_HOST ?? 'localhost',
     port: parseInt(process.env.DATABASE_PORT ?? '5432'),
