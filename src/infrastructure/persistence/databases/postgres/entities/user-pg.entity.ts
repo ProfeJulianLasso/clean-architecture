@@ -1,8 +1,8 @@
-import { UserEntity } from 'src/domain/entities/user/user.entity';
-import { NameValueObject } from 'src/domain/value-objects/user/name.value-object';
-import { StateValueObject } from 'src/domain/value-objects/user/state.value-object';
-import { UserIdValueObject } from 'src/domain/value-objects/user/user-id.value-object';
 import { Column, Entity } from 'typeorm';
+import { UserEntity } from '../../../../../domain/entities/user/user.entity';
+import { NameValueObject } from '../../../../../domain/value-objects/name.value-object';
+import { StateValueObject } from '../../../../../domain/value-objects/state.value-object';
+import { UserIdValueObject } from '../../../../../domain/value-objects/user-id.value-object';
 
 @Entity({ name: 'user', schema: 'public' })
 export class UserPgEntity extends UserEntity {

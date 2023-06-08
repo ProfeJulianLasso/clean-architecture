@@ -1,6 +1,6 @@
-import { NameValueObject } from 'src/domain/value-objects/user/name.value-object';
-import { StateValueObject } from 'src/domain/value-objects/user/state.value-object';
-import { UserIdValueObject } from 'src/domain/value-objects/user/user-id.value-object';
+import { NameValueObject } from '../../value-objects/name.value-object';
+import { StateValueObject } from '../../value-objects/state.value-object';
+import { UserIdValueObject } from '../../value-objects/user-id.value-object';
 import { IUser } from './user.interface';
 
 export class UserEntity implements IUser {

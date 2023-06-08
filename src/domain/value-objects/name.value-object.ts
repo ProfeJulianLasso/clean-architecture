@@ -1,27 +1,10 @@
-import { CommandExceptionType } from '../../exceptions/command.exception';
+import { ValueObjectBase } from './base/value-object.base';
 
 const MIN_LENGTH = 4;
 const MAX_LENGTH = 50;
 
-export class NameValueObject {
-  private _error: CommandExceptionType;
-
-  constructor(private readonly _value: string) {}
-
-  get value(): string {
-    return this._value;
-  }
-
-  get error(): CommandExceptionType {
-    return this._error;
-  }
-
-  isValid(): boolean {
-    this.validate();
-    return this._error ? false : true;
-  }
-
-  private validate(): void {
+export class NameValueObject extends ValueObjectBase<string> {
+  protected validate(): void {
     if (
       (this._value.length >= MIN_LENGTH && this._value.length <= MAX_LENGTH) ===
       false

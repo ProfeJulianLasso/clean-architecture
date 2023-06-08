@@ -1,8 +1,5 @@
 import { UserEntity } from '../entities/user/user.entity';
+import { IRepositoryBase } from './base/repository.base';
 
-export interface IUserRepository<Entity extends UserEntity = UserEntity> {
-  create(entity: Entity): Promise<Entity>;
-  update(id: string, entity: Entity): Promise<Entity>;
-  delete(id: string): Promise<boolean>;
-  findAll(): Promise<Entity[]>;
-}
+export type IUserRepository<Entity extends UserEntity = UserEntity> =
+  IRepositoryBase<Entity>;

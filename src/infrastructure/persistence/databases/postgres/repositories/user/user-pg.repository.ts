@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IUserRepository } from 'src/domain/repositories/user.repository';
 import { Repository } from 'typeorm';
+import { IUserRepository } from '../../../../../../domain/repositories/user.repository';
 import { UserPgEntity } from '../../entities/user-pg.entity';
 
 @Injectable()
@@ -13,6 +13,14 @@ export class UserPgRepository<Entity extends UserPgEntity = UserPgEntity>
     private readonly repository: Repository<Entity>,
   ) {}
 
+  findAll(): Promise<Entity[]> {
+    throw new Error('Method not implemented.');
+  }
+
+  findBy(entity: Partial<Entity>): Promise<Entity> {
+    throw new Error('Method not implemented.' + entity.id);
+  }
+
   create(entity: Entity): Promise<Entity> {
     return this.repository.save(entity);
   }
@@ -23,9 +31,5 @@ export class UserPgRepository<Entity extends UserPgEntity = UserPgEntity>
 
   delete(id: string): Promise<boolean> {
     throw new Error('Method not implemented. ' + id);
-  }
-
-  findAll(): Promise<Entity[]> {
-    throw new Error('Method not implemented.');
   }
 }

@@ -1,6 +1,6 @@
-import { CommandExceptionType } from 'src/domain/exceptions/command.exception';
-import { NameValueObject } from 'src/domain/value-objects/user/name.value-object';
-import { UserIdValueObject } from 'src/domain/value-objects/user/user-id.value-object';
+import { CommandExceptionType } from '../../exceptions/command.exception';
+import { NameValueObject } from '../../value-objects/name.value-object';
+import { UserIdValueObject } from '../../value-objects/user-id.value-object';
 import { ICreateUserCommand } from './create-user.command';
 
 export class CreateUserValidator {
