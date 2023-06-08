@@ -1,4 +1,4 @@
-import { SecurityAggregate } from '../../../domain/aggregates/security.aggregate';
+import { SecurityAggregate } from '../../../domain/aggregates/security/security.aggregate';
 import { ICreateUserCommand } from '../../../domain/commands/create-user/create-user.command';
 import { CreateUserValidator } from '../../../domain/commands/create-user/create-user.validator';
 import { UserEntity } from '../../../domain/entities/user/user.entity';

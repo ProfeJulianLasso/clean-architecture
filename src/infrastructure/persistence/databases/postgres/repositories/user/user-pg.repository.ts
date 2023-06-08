@@ -10,7 +10,7 @@ export class UserPgRepository<Entity extends UserPgEntity = UserPgEntity>
 {
   constructor(
     @InjectRepository(UserPgEntity)
-    private readonly repository: Repository<UserPgEntity>,
+    private readonly repository: Repository<Entity>,
   ) {}
 
   create(entity: Entity): Promise<Entity> {

@@ -1,6 +1,6 @@
 import { Body, Controller, Post, UseInterceptors } from '@nestjs/common';
 import { Observable, from } from 'rxjs';
-import { UserCreatedInterceptor } from 'src/infrastructure/interceptors/user-created/user-created.interceptor';
+import { UserCreatedInterceptor } from '../../interceptors/user-created/user-created.interceptor';
 import { CreateUserUseCase } from '../../../application/use-cases/create-user/create-user.use.case';
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { UserEntity } from '../../persistence/entities/user.entity';
