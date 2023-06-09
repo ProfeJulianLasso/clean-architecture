@@ -1,8 +1,8 @@
 import { Body, Controller, Post, UseInterceptors } from '@nestjs/common';
 import { Observable, from } from 'rxjs';
-import { UserCreatedInterceptor } from '../../interceptors/user-created/user-created.interceptor';
 import { CreateUserUseCase } from '../../../application/use-cases/create-user/create-user.use.case';
 import { CreateUserDto } from '../../dto/create-user.dto';
+import { UserCreatedInterceptor } from '../../interceptors/user-created/user-created.interceptor';
 import { UserEntity } from '../../persistence/entities/user.entity';
 import { UserRepository } from '../../persistence/repositories/user.repository';
 
@@ -19,14 +19,4 @@ export class CreateUserApi {
   create(@Body() data: CreateUserDto): Observable<UserEntity> {
     return from(this.useCase.execute(data));
   }
-
-  // create(@Body() data: CreateUserDto): Observable<UserCreatedResponseDto> {
-  //   return from(this.useCase.execute(data)).pipe(
-  //     map((user) => ({
-  //       id: user.id.value,
-  //       name: user.name.value,
-  //       state: user.state.value,
-  //     })),
-  //   );
-  // }
 }

@@ -17,8 +17,8 @@ export class UserPgRepository<Entity extends UserPgEntity = UserPgEntity>
     throw new Error('Method not implemented.');
   }
 
-  findBy(entity: Partial<Entity>): Promise<Entity> {
-    throw new Error('Method not implemented.' + entity.id);
+  findBy(entity: Entity): Promise<Entity> {
+    throw new Error('Method not implemented.' + entity);
   }
 
   create(entity: Entity): Promise<Entity> {
