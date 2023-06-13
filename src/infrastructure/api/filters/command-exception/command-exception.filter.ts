@@ -5,11 +5,11 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { CommandException } from '../../../../domain/exceptions/domain.exception';
+import { DomainException } from '../../../../domain/exceptions/domain.exception';
 
-@Catch(CommandException)
+@Catch(DomainException)
 export class CommandExceptionFilter implements ExceptionFilter {
-  catch(exception: CommandException, host: ArgumentsHost): void {
+  catch(exception: DomainException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
 

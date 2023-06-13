@@ -1,15 +1,15 @@
-import { CommandExceptionType } from '../../exceptions/domain.exception';
+import { ValueObjectExceptionType } from '../../exceptions/domain.exception';
 
 export abstract class ValueObjectBase<Type> {
-  protected _error: CommandExceptionType;
+  protected _error: ValueObjectExceptionType;
 
   constructor(public readonly value: Type) {}
 
-  get error(): CommandExceptionType {
+  get error(): ValueObjectExceptionType {
     return this._error;
   }
 
-  protected set error(error: CommandExceptionType) {
+  protected set error(error: ValueObjectExceptionType) {
     this._error = error;
   }
 

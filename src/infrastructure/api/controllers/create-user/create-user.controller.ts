@@ -8,7 +8,7 @@ import { UserCreatedInterceptor } from '../../interceptors/user-created/user-cre
 
 @Controller('user')
 export class CreateUserController {
-  private readonly useCase: CreateUserUseCase;
+  readonly useCase: CreateUserUseCase;
 
   constructor(private readonly userRepository: UserRepository) {
     this.useCase = new CreateUserUseCase(this.userRepository);
