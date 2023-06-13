@@ -1,17 +1,16 @@
 import { NameValueObject } from '../../value-objects/name.value-object';
 import { StateValueObject } from '../../value-objects/state.value-object';
 import { UserIdValueObject } from '../../value-objects/user-id.value-object';
+import { EntityBase } from '../base/entity.base';
 import { IUser } from './user.interface';
 
-export class UserEntity implements IUser {
+export class UserEntity extends EntityBase implements IUser {
   id: UserIdValueObject;
   name: NameValueObject;
   state: StateValueObject;
 
-  constructor(data?: Partial<UserEntity>) {
-    if (data?.id) this.id = data.id;
-    if (data?.name) this.name = data.name;
-    if (data?.state) this.state = data.state;
+  constructor(data?: Partial<IUser>) {
+    super(data);
   }
 
   create(): this {

@@ -5,8 +5,8 @@ import {
   NestInterceptor,
 } from '@nestjs/common';
 import { Observable, map } from 'rxjs';
+import { UserEntity } from '../../../persistence/entities/user.entity';
 import { UserCreatedResponseDto } from '../../dto/user-created.response';
-import { UserEntity } from '../../persistence/entities/user.entity';
 
 @Injectable()
 export class UserCreatedInterceptor implements NestInterceptor {

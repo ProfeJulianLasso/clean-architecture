@@ -5,7 +5,7 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { CommandException } from '../../../domain/exceptions/command.exception';
+import { CommandException } from '../../../../domain/exceptions/domain.exception';
 
 @Catch(CommandException)
 export class CommandExceptionFilter implements ExceptionFilter {

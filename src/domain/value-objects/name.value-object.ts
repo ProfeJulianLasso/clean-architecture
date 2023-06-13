@@ -5,16 +5,13 @@ const MAX_LENGTH = 50;
 
 export class NameValueObject extends ValueObjectBase<string> {
   protected validate(): void {
-    if (
-      (this._value.length >= MIN_LENGTH && this._value.length <= MAX_LENGTH) ===
-      false
-    )
-      this._error = {
+    if (this.value.length < MIN_LENGTH || this.value.length > MAX_LENGTH)
+      this.error = {
         field: 'name',
         message: `Name is min ${MIN_LENGTH} and max ${MAX_LENGTH} characters`,
       };
-    else if (typeof this._value !== 'string')
-      this._error = {
+    else if (typeof this.value !== 'string')
+      this.error = {
         field: 'name',
         message: 'Name is not valid string',
       };

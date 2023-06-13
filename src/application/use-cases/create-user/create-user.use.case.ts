@@ -2,26 +2,25 @@ import { SecurityAggregate } from '../../../domain/aggregates/security/security.
 import { ICreateUserCommand } from '../../../domain/commands/create-user/create-user.command';
 import { CreateUserValidator } from '../../../domain/commands/create-user/create-user.validator';
 import { UserEntity } from '../../../domain/entities/user/user.entity';
-import { CommandException } from '../../../domain/exceptions/command.exception';
+import { DomainException } from '../../../domain/exceptions/domain.exception';
 import { IUserRepository } from '../../../domain/repositories/user.repository';
+import { UseCaseBase } from '../base/use-case.base';
 
-export class CreateUserUseCase {
-  private readonly securityAggregate: SecurityAggregate;
-
+export class CreateUserUseCase extends UseCaseBase<SecurityAggregate> {
   constructor(private readonly userRepository: IUserRepository) {
-    this.securityAggregate = new SecurityAggregate();
+    super(new SecurityAggregate());
   }
 
   execute(data: ICreateUserCommand): Promise<UserEntity> {
     const user = new CreateUserValidator(data);
     if (user.isValid() === false)
-      throw new CommandException('Invalid data 2', user.errors);
+      throw new DomainException('Invalid data 2', user.errors);
 
     const userEntity = new UserEntity({
       id: user.id,
       name: user.name,
     });
-    const newUser = this.securityAggregate.createUser(userEntity);
+    const newUser = this.aggregate.createUser(userEntity);
 
     return this.userRepository.create(newUser);
   }
