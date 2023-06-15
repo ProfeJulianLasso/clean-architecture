@@ -3,6 +3,10 @@ import { UserIdValueObject } from '../../value-objects/user-id.value-object';
 import { ValidatorBase } from '../base/validator.base';
 import { ICreateUserCommand } from './create-user.command';
 
+export function HolaMundoFn(): string {
+  return 'Hola mundo';
+}
+
 export class CreateUserValidator extends ValidatorBase {
   id: UserIdValueObject;
   name: NameValueObject;

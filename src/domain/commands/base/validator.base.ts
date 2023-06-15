@@ -7,7 +7,7 @@ export abstract class ValidatorBase {
     this._errors = new Array<ValueObjectExceptionType>();
   }
 
-  get errors(): ValueObjectExceptionType[] {
+  getErrors(): ValueObjectExceptionType[] {
     return this._errors;
   }
 
